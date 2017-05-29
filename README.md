@@ -2,6 +2,8 @@
 
 ### Guava cache vs EhCache
 
+---
+
 *_Linux_*
 
 *_Intel(R) Core(TM) i7-3770 CPU @ 3.40GHz(8 CPUs)_*
@@ -68,4 +70,4 @@ https://github.com/ehcache/ehcache3
 | Statistics             |      yes      |      yes       |
 
 
-[***All tests is here***](src/test/java/com/investigation/caches/)
+[***All tests are here***](src/test/java/com/investigation/caches/)
