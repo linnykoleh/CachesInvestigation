@@ -24,9 +24,9 @@
 | get 1_000_000 |   408.88 ms   |   296.34 ms    |
 
 
-`**Guava cache loses only when small number of elements**`
-`**but when number of elements more then**`
-`**time execution of Guava cache implementation is better almost half.**`
+`Guava cache loses only when small number of elements
+but when number of elements more then
+time execution of Guava cache implementation is better almost half.`
 
 > **How I tested**
 > I run every test 20 times and get last 10 values. First 10 values I skipped because I think
@@ -71,9 +71,9 @@ Both are `thread-safe` caches
 
 `EhCache` -     http://www.ehcache.org/documentation/
 
-`Documentation for EhCache obviously better than in Guava cache.`
-`Google provide us only wiki on github with examples`
-`but EhCache provides us full documentation with explanation and a lot of examples`
+`Documentation for EhCache obviously better than in Guava cache.
+Google provide us only wiki on github with examples
+but EhCache provides us full documentation with explanation and a lot of examples`
 
 #### 4. Community
 
@@ -85,9 +85,9 @@ https://github.com/ehcache/ehcache3
 
 ![alt text](images/ehcache_github.png)
 
-`Both guava cache and ehcache are now being developed` 
-`it can be seen by stars and numbers who watched projects`
-`of course guava has better statistic because there are a lot of direction except the cache`
+`Both guava cache and ehcache are now being developed
+it can be seen by stars and numbers who watched projects
+of course guava has better statistic because there are a lot of direction except the cache`
 
 #### 5. Features
 
