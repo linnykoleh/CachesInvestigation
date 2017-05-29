@@ -35,29 +35,29 @@
 **Test example**
 ```java
 	
-		@Test
-    	public void testGuavaCachePut1_000_000(){
-    		measure(MEASURE_TIMES, () -> {
-    			final int size = 1_000_000;
-    			final GuavaCache guavaCache = new GuavaCache(size);
-    
-    			final Stream<DomainObject> domainObjects = generatePayload(size);
-    			calculateTimeExecuting(domainObjects, guavaCache::push);
-    
-    			Assert.assertTrue("Error GuavaCache size different:", guavaCache.size() == size);
-    			guavaCache.cleanUp();
-    		});
-    	}
+        @Test
+        public void testGuavaCachePut1_000_000(){
+            measure(MEASURE_TIMES, () -> {
+                final int size = 1_000_000;
+                final GuavaCache guavaCache = new GuavaCache(size);
+
+                final Stream<DomainObject> domainObjects = generatePayload(size);
+                calculateTimeExecuting(domainObjects, guavaCache::push);
+
+                Assert.assertTrue("Error GuavaCache size different:", guavaCache.size() == size);
+                guavaCache.cleanUp();
+            });
+       }
 	
 ```
 
 ```java
 
-		public void measure(int times, Runnable testSuite){
-			for(int i = 0; i < times; i++){
-				testSuite.run();
-			}
-		}
+         public void measure(int times, Runnable testSuite){
+             for(int i = 0; i < times; i++){
+                 testSuite.run();
+             }
+         }
 	
 ```
 
