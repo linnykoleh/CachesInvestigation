@@ -25,7 +25,7 @@
 
 
 > **Guava cache loses only when small number of elements**
-> **but when number of elements more then 1000**
+> **but when number of elements more then**
 > **time execution of Guava cache implementation is better almost half.**
 
 #### 2. Thread safe
