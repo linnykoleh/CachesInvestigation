@@ -56,7 +56,7 @@ https://github.com/ehcache/ehcache3
 > **it can be seen by stars and numbers who watched projects**
 > **of course guava has better statistic because there are a lot of direction except the cache**
 
-6. Features
+#### 5. Features
 
 | Feature                |    EhCache    |   Guava cache  | 
 | -----------------------|:-------------:| --------------:|
