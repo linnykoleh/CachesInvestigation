@@ -24,9 +24,42 @@
 | get 1_000_000 |   408.88 ms   |   296.34 ms    |
 
 
-> **Guava cache loses only when small number of elements**
-> **but when number of elements more then**
-> **time execution of Guava cache implementation is better almost half.**
+`**Guava cache loses only when small number of elements**`
+`**but when number of elements more then**`
+`**time execution of Guava cache implementation is better almost half.**`
+
+> **How I tested**
+> I run every test 20 times and get last 10 values. First 10 values I skipped because I think
+> this is not correct values because computer is dispersing
+
+**Test example**
+```java
+	
+		@Test
+    	public void testGuavaCachePut1_000_000(){
+    		measure(MEASURE_TIMES, () -> {
+    			final int size = 1_000_000;
+    			final GuavaCache guavaCache = new GuavaCache(size);
+    
+    			final Stream<DomainObject> domainObjects = generatePayload(size);
+    			calculateTimeExecuting(domainObjects, guavaCache::push);
+    
+    			Assert.assertTrue("Error GuavaCache size different:", guavaCache.size() == size);
+    			guavaCache.cleanUp();
+    		});
+    	}
+	
+```
+
+```java
+
+		public void measure(int times, Runnable testSuite){
+			for(int i = 0; i < times; i++){
+				testSuite.run();
+			}
+		}
+	
+```
 
 #### 2. Thread safe
 
@@ -38,9 +71,9 @@ Both are `thread-safe` caches
 
 `EhCache` -     http://www.ehcache.org/documentation/
 
-> **Documentation for EhCache obviously better than in Guava cache.**
-> **Google provide us only wiki on github with examples**
-> **but EhCache provides us full documentation with explanation and a lot of examples**
+`**Documentation for EhCache obviously better than in Guava cache.**`
+`**Google provide us only wiki on github with examples**`
+`**but EhCache provides us full documentation with explanation and a lot of examples**`
 
 #### 4. Community
 
@@ -52,9 +85,9 @@ https://github.com/ehcache/ehcache3
 
 ![alt text](images/ehcache_github.png)
 
-> **Both guava cache and ehcache are now being developed** 
-> **it can be seen by stars and numbers who watched projects**
-> **of course guava has better statistic because there are a lot of direction except the cache**
+`**Both guava cache and ehcache are now being developed**` 
+`**it can be seen by stars and numbers who watched projects**`
+`**of course guava has better statistic because there are a lot of direction except the cache**`
 
 #### 5. Features
 
