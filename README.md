@@ -103,4 +103,51 @@ of course guava has better statistic because there are a lot of direction except
 | Statistics             |      yes      |      yes       |
 
 
+
 [***All tests are here***](src/test/java/com/investigation/caches/)
+
+---
+
+Benchmark result
+
+`Result "com.investigation.benchmark.GuavaCacheBenchmark.push":`
+290.596 ±(99.9%) 128.686 ns/op [Average]
+(min, avg, max) = (157.674, 290.596, 388.434), stdev = 85.118
+CI (99.9%): [161.911, 419.282] (assumes normal distribution)
+
+`Result "com.investigation.benchmark.GuavaCacheBenchmark.getPut":`
+388.225 ±(99.9%) 334.280 ns/op [Average]
+(min, avg, max) = (188.616, 388.225, 790.026), stdev = 221.106
+CI (99.9%): [53.945, 722.505] (assumes normal distribution)
+
+`Result "com.investigation.benchmark.GuavaCacheBenchmark.get":`
+101.170 ±(99.9%) 312.169 ns/op [Average]
+(min, avg, max) = (17.823, 101.170, 684.813), stdev = 206.480
+CI (99.9%): [≈ 0, 413.339] (assumes normal distribution)
+
+
+`Result "com.investigation.benchmark.EhCacheBenchmark.push":`
+672.224 ±(99.9%) 735.043 ns/op [Average]
+(min, avg, max) = (357.479, 672.224, 1959.890), stdev = 486.185
+CI (99.9%): [≈ 0, 1407.267] (assumes normal distribution)
+
+`Result "com.investigation.benchmark.EhCacheBenchmark.getPut":`
+878.802 ±(99.9%) 887.920 ns/op [Average]
+(min, avg, max) = (526.381, 878.802, 2347.393), stdev = 587.304
+CI (99.9%): [≈ 0, 1766.722] (assumes normal distribution)
+
+`Result "com.investigation.benchmark.EhCacheBenchmark.get":`
+134.799 ±(99.9%) 90.149 ns/op [Average]
+(min, avg, max) = (59.389, 134.799, 260.582), stdev = 59.628
+CI (99.9%): [44.650, 224.949] (assumes normal distribution)
+
+
+| Benchmark                 |  Mode | Cnt |  Score  |  Error    | Units |
+|---------------------------|:------|:----|:--------|:----------|:------|
+| EhCacheBenchmark.get      |  avgt | 10  | 134.799 | ± 90.149  | ns/op |
+| EhCacheBenchmark.getPut   |  avgt | 10  | 878.802 | ± 887.920 | ns/op |
+| EhCacheBenchmark.push     |  avgt | 10  | 672.224 | ± 735.043 | ns/op |
+|                           |       |     |         |           |       |
+| GuavaCacheBenchmark.get   |  avgt | 10  | 101.170 | ± 312.169 | ns/op |
+| GuavaCacheBenchmark.getPut|  avgt | 10  | 388.225 | ± 334.280 | ns/op |
+| GuavaCacheBenchmark.push  |  avgt | 10  | 290.596 | ± 128.686 | ns/op |

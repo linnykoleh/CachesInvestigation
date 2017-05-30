@@ -53,6 +53,9 @@ public class DomainObject {
 		this.prop20 = prop20;
 	}
 
+	public DomainObject() {
+	}
+
 	public String getKey() {
 		return key;
 	}
