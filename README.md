@@ -157,3 +157,6 @@ of course guava has better statistic because there are a lot of direction except
 > **In order to run benchmarking**
 > - mvn clean install -DskipTests
 > - java -jar target/benchmarks.jar
+
+
+[More examples: http://tutorials.jenkov.com/java-performance/jmh.html](http://tutorials.jenkov.com/java-performance/jmh.html)
