@@ -34,6 +34,10 @@ public class EhCacheBenchmark {
 
 	private Cache cache;
 	private CacheManager cacheManager = CacheManager.create();
+	private DomainObject exampleObject = new DomainObject("key",
+			"prop2", "prop3","prop4","prop5","prop6","prop7",
+			8,9,10,11,12,13,14,
+			15,16,17,18,19,20);
 
 	@Setup
 	public void setup() {
@@ -52,7 +56,7 @@ public class EhCacheBenchmark {
 	@Threads(5)
 	@Measurement(iterations = 5, time = 100, timeUnit = TimeUnit.NANOSECONDS)
 	public void push() {
-		this.cache.put(new Element("key", new DomainObject()));
+		this.cache.put(new Element("key", exampleObject));
 	}
 
 	@Benchmark
@@ -67,7 +71,7 @@ public class EhCacheBenchmark {
 	@Threads(5)
 	@Measurement(iterations = 5, time = 100, timeUnit = TimeUnit.NANOSECONDS)
 	public DomainObject getPut() {
-		this.cache.put(new Element("key", new DomainObject()));
+		this.cache.put(new Element("key", exampleObject));
 		Element cachedValue = cache.get("key");
 		return cachedValue == null ? null :(DomainObject) cachedValue.getObjectValue();
 	}

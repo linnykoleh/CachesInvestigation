@@ -31,6 +31,11 @@ public class GuavaCacheBenchmark {
 
 	private Cache<String, DomainObject> cache;
 
+	private DomainObject exampleObject = new DomainObject("key",
+			"prop2", "prop3","prop4","prop5","prop6","prop7",
+			8,9,10,11,12,13,14,
+			15,16,17,18,19,20);
+
 	@Setup
 	public void setup() {
 		cache = CacheBuilder
@@ -43,7 +48,7 @@ public class GuavaCacheBenchmark {
 	@Threads(5)
 	@Measurement(iterations = 5, time = 100, timeUnit = TimeUnit.NANOSECONDS)
 	public void push() {
-		this.cache.put("key", new DomainObject());
+		this.cache.put("key", exampleObject);
 	}
 
 	@Benchmark
@@ -57,7 +62,7 @@ public class GuavaCacheBenchmark {
 	@Threads(5)
 	@Measurement(iterations = 5, time = 100, timeUnit = TimeUnit.NANOSECONDS)
 	public DomainObject getPut() {
-		this.cache.put("key", new DomainObject());
+		this.cache.put("key", exampleObject);
 		return cache.getIfPresent("key");
 	}
 
