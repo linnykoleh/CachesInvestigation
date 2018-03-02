@@ -1,4 +1,4 @@
-package com.investigation.benchmark;
+package com.investigation.ehcache.benchmark;
 
 import java.util.concurrent.TimeUnit;
 
@@ -55,7 +55,7 @@ public class EhCacheBenchmark {
 	@Benchmark
 	@Threads(5)
 	@Measurement(iterations = 5, time = 100, timeUnit = TimeUnit.NANOSECONDS)
-	public void push() {
+	public void add() {
 		this.cache.put(new Element("key", exampleObject));
 	}
 
@@ -70,7 +70,7 @@ public class EhCacheBenchmark {
 	@Benchmark
 	@Threads(5)
 	@Measurement(iterations = 5, time = 100, timeUnit = TimeUnit.NANOSECONDS)
-	public DomainObject getPut() {
+	public DomainObject getAdd() {
 		this.cache.put(new Element("key", exampleObject));
 		Element cachedValue = cache.get("key");
 		return cachedValue == null ? null :(DomainObject) cachedValue.getObjectValue();

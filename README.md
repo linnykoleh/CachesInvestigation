@@ -8,7 +8,7 @@
 
 *_Intel(R) Core(TM) i7-3770 CPU @ 3.40GHz(8 CPUs)_*
 
-*_16 Gb RAM_*
+*_32 Gb RAM_*
 
 
 #### 1. Time execution
@@ -110,48 +110,57 @@ of course guava has better statistic because there are a lot of direction except
 
 #### Benchmark result
 
-##### Result "com.investigation.benchmark.GuavaCacheBenchmark.push":`
+##### Result "com.investigation.guava.benchmark.GuavaCacheBenchmark.push":`
  - 290.596 ±(99.9%) 128.686 ns/op [Average]
  - (min, avg, max) = (157.674, 290.596, 388.434), stdev = 85.118
  - CI (99.9%): [161.911, 419.282] (assumes normal distribution)
 
-##### Result "com.investigation.benchmark.GuavaCacheBenchmark.getPut":
+##### Result "com.investigation.guava.benchmark.GuavaCacheBenchmark.getPut":
  - 388.225 ±(99.9%) 334.280 ns/op [Average]
  - (min, avg, max) = (188.616, 388.225, 790.026), stdev = 221.106
  - CI (99.9%): [53.945, 722.505] (assumes normal distribution)
 
-##### Result "com.investigation.benchmark.GuavaCacheBenchmark.get":
+##### Result "com.investigation.guava.benchmark.GuavaCacheBenchmark.get":
  - 101.170 ±(99.9%) 312.169 ns/op [Average]
  - (min, avg, max) = (17.823, 101.170, 684.813), stdev = 206.480
  - CI (99.9%): [≈ 0, 413.339] (assumes normal distribution)
 
 
-##### Result "com.investigation.benchmark.EhCacheBenchmark.push":
+##### Result "com.investigation.ehcache.benchmark.EhCacheBenchmark.push":
  - 672.224 ±(99.9%) 735.043 ns/op [Average]
  - (min, avg, max) = (357.479, 672.224, 1959.890), stdev = 486.185
  - CI (99.9%): [≈ 0, 1407.267] (assumes normal distribution)
 
-##### Result "com.investigation.benchmark.EhCacheBenchmark.getPut":
+##### Result "com.investigation.ehcache.benchmark.EhCacheBenchmark.getPut":
  - 878.802 ±(99.9%) 887.920 ns/op [Average]
  - (min, avg, max) = (526.381, 878.802, 2347.393), stdev = 587.304
  - CI (99.9%): [≈ 0, 1766.722] (assumes normal distribution)
 
-##### Result "com.investigation.benchmark.EhCacheBenchmark.get":
+##### Result "com.investigation.ehcache.benchmark.EhCacheBenchmark.get":
  - 134.799 ±(99.9%) 90.149 ns/op [Average]
  - (min, avg, max) = (59.389, 134.799, 260.582), stdev = 59.628
  - CI (99.9%): [44.650, 224.949] (assumes normal distribution)
 
 
-| Benchmark                 |  Mode | Cnt |  Score  |  Error    | Units |
-|---------------------------|:------|:----|:--------|:----------|:------|
-| EhCacheBenchmark.get      |  avgt | 10  | 134.799 | ± 90.149  | ns/op |
-| EhCacheBenchmark.getPut   |  avgt | 10  | 878.802 | ± 887.920 | ns/op |
-| EhCacheBenchmark.push     |  avgt | 10  | 672.224 | ± 735.043 | ns/op |
-|                           |       |     |         |           |       |
-| GuavaCacheBenchmark.get   |  avgt | 10  | 101.170 | ± 312.169 | ns/op |
-| GuavaCacheBenchmark.getPut|  avgt | 10  | 388.225 | ± 334.280 | ns/op |
-| GuavaCacheBenchmark.push  |  avgt | 10  | 290.596 | ± 128.686 | ns/op |
+| Benchmark                    |  Mode | Cnt |  Score  |  Error      | Units |
+|------------------------------|:------|:----|:--------|:------------|:------|
+| EhCacheBenchmark.get         |  avgt | 10  | 176.414 | ±  129.249  | ns/op |
+| EhCacheBenchmark.getAdd      |  avgt | 10  | 456.254 | ±  456.254  | ns/op |
+| EhCacheBenchmark.add         |  avgt | 10  | 360.040 | ±  360.040  | ns/op |
+|                              |       |     |         |             |       |
+| GuavaCacheBenchmark.get      |  avgt | 10  | 417.519 | ± 1852.250  | ns/op |
+| GuavaCacheBenchmark.getAdd   |  avgt | 10  | 301.317 | ±  156.990  | ns/op |
+| GuavaCacheBenchmark.add      |  avgt | 10  | 121.100 | ±   52.495  | ns/op |
+|                              |       |     |         |             |       |
+| CoffeineCacheBenchmark.get   |  avgt | 10  |  68.528 | ±  73.959   | ns/op |
+| CoffeineCacheBenchmark.getAdd|  avgt | 10  | 101.232 | ±  66.103   | ns/op |
+| CoffeineCacheBenchmark.add   |  avgt | 10  | 139.562 | ±  84.309   | ns/op 
+|                              |       |     |         |             |       |
+| CQEngineCacheBenchmark.get   |  avgt | 10  |2778.847 | ± 10868.407 | ns/op |
+| CQEngineCacheBenchmark.getAdd|  avgt | 10  |1925.592 | ±  2387.369 | ns/op |
+| CQEngineCacheBenchmark.add   |  avgt | 10  | 552.958 | ±   659.467 | ns/op |
 
+[Виктор Гамов — JCache и распределенные кэши: беспредел!](https://www.youtube.com/watch?v=mU893v4HtF4)
 
 ---
 > **In order to run benchmarking**

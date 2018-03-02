@@ -107,6 +107,21 @@
 	</build>
 
 	<dependencies>
+
+		<!--cqengine-->
+		<dependency>
+			<groupId>com.googlecode.cqengine</groupId>
+			<artifactId>cqengine</artifactId>
+			<version>2.12.4</version>
+		</dependency>
+
+		<!--caffeine-->
+		<dependency>
+			<groupId>com.github.ben-manes.caffeine</groupId>
+			<artifactId>caffeine</artifactId>
+			<version>2.6.2</version>
+		</dependency>
+
 		<!-- ehcache -->
 		<dependency>
 			<groupId>net.sf.ehcache</groupId>
@@ -174,7 +189,6 @@
 			<version>${jmh.version}</version>
 			<scope>provided</scope>
 		</dependency>
-
 
 	</dependencies>
 

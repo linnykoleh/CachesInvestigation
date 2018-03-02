@@ -1,5 +1,6 @@
 package com.investigation.domain;
 
+import java.util.Objects;
 
 public class DomainObject {
 
@@ -144,100 +145,33 @@ public class DomainObject {
 		if (o == null || getClass() != o.getClass()) {
 			return false;
 		}
-
 		DomainObject that = (DomainObject) o;
-
-		if (prop8 != that.prop8) {
-			return false;
-		}
-		if (prop9 != that.prop9) {
-			return false;
-		}
-		if (prop10 != that.prop10) {
-			return false;
-		}
-		if (prop11 != that.prop11) {
-			return false;
-		}
-		if (prop12 != that.prop12) {
-			return false;
-		}
-		if (prop13 != that.prop13) {
-			return false;
-		}
-		if (prop14 != that.prop14) {
-			return false;
-		}
-		if (Double.compare(that.prop15, prop15) != 0) {
-			return false;
-		}
-		if (Double.compare(that.prop16, prop16) != 0) {
-			return false;
-		}
-		if (Double.compare(that.prop17, prop17) != 0) {
-			return false;
-		}
-		if (Double.compare(that.prop18, prop18) != 0) {
-			return false;
-		}
-		if (Double.compare(that.prop19, prop19) != 0) {
-			return false;
-		}
-		if (Double.compare(that.prop20, prop20) != 0) {
-			return false;
-		}
-		if (key != null ? !key.equals(that.key) : that.key != null) {
-			return false;
-		}
-		if (prop2 != null ? !prop2.equals(that.prop2) : that.prop2 != null) {
-			return false;
-		}
-		if (prop3 != null ? !prop3.equals(that.prop3) : that.prop3 != null) {
-			return false;
-		}
-		if (prop4 != null ? !prop4.equals(that.prop4) : that.prop4 != null) {
-			return false;
-		}
-		if (prop5 != null ? !prop5.equals(that.prop5) : that.prop5 != null) {
-			return false;
-		}
-		if (prop6 != null ? !prop6.equals(that.prop6) : that.prop6 != null) {
-			return false;
-		}
-		return prop7 != null ? prop7.equals(that.prop7) : that.prop7 == null;
+		return prop8 == that.prop8 &&
+				prop9 == that.prop9 &&
+				prop10 == that.prop10 &&
+				prop11 == that.prop11 &&
+				prop12 == that.prop12 &&
+				prop13 == that.prop13 &&
+				prop14 == that.prop14 &&
+				Double.compare(that.prop15, prop15) == 0 &&
+				Double.compare(that.prop16, prop16) == 0 &&
+				Double.compare(that.prop17, prop17) == 0 &&
+				Double.compare(that.prop18, prop18) == 0 &&
+				Double.compare(that.prop19, prop19) == 0 &&
+				Double.compare(that.prop20, prop20) == 0 &&
+				Objects.equals(key, that.key) &&
+				Objects.equals(prop2, that.prop2) &&
+				Objects.equals(prop3, that.prop3) &&
+				Objects.equals(prop4, that.prop4) &&
+				Objects.equals(prop5, that.prop5) &&
+				Objects.equals(prop6, that.prop6) &&
+				Objects.equals(prop7, that.prop7);
 	}
 
 	@Override
 	public int hashCode() {
-		int result;
-		long temp;
-		result = key != null ? key.hashCode() : 0;
-		result = 31 * result + (prop2 != null ? prop2.hashCode() : 0);
-		result = 31 * result + (prop3 != null ? prop3.hashCode() : 0);
-		result = 31 * result + (prop4 != null ? prop4.hashCode() : 0);
-		result = 31 * result + (prop5 != null ? prop5.hashCode() : 0);
-		result = 31 * result + (prop6 != null ? prop6.hashCode() : 0);
-		result = 31 * result + (prop7 != null ? prop7.hashCode() : 0);
-		result = 31 * result + prop8;
-		result = 31 * result + prop9;
-		result = 31 * result + prop10;
-		result = 31 * result + prop11;
-		result = 31 * result + prop12;
-		result = 31 * result + prop13;
-		result = 31 * result + prop14;
-		temp = Double.doubleToLongBits(prop15);
-		result = 31 * result + (int) (temp ^ (temp >>> 32));
-		temp = Double.doubleToLongBits(prop16);
-		result = 31 * result + (int) (temp ^ (temp >>> 32));
-		temp = Double.doubleToLongBits(prop17);
-		result = 31 * result + (int) (temp ^ (temp >>> 32));
-		temp = Double.doubleToLongBits(prop18);
-		result = 31 * result + (int) (temp ^ (temp >>> 32));
-		temp = Double.doubleToLongBits(prop19);
-		result = 31 * result + (int) (temp ^ (temp >>> 32));
-		temp = Double.doubleToLongBits(prop20);
-		result = 31 * result + (int) (temp ^ (temp >>> 32));
-		return result;
+		return Objects.hash(key, prop2, prop3, prop4, prop5, prop6, prop7, prop8, prop9, prop10, prop11, prop12, prop13,
+						prop14, prop15, prop16, prop17, prop18, prop19, prop20);
 	}
 
 	@Override

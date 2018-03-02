@@ -7,6 +7,7 @@ import java.util.stream.Stream;
 import org.junit.Test;
 
 import com.investigation.domain.DomainObject;
+import com.investigation.ehcache.EhCache;
 
 public class TestECachePut extends TestCachesParent {
 

@@ -1,4 +1,4 @@
-package com.investigation.caches;
+package com.investigation.ehcache;
 
 import com.investigation.domain.DomainObject;
 

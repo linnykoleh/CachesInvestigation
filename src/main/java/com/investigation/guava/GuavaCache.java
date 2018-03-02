@@ -1,4 +1,4 @@
-package com.investigation.caches;
+package com.investigation.guava;
 
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;

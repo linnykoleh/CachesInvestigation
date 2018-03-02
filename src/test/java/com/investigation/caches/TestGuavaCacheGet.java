@@ -7,6 +7,7 @@ import java.util.stream.Stream;
 import org.junit.Test;
 
 import com.investigation.domain.DomainObject;
+import com.investigation.guava.GuavaCache;
 
 public class TestGuavaCacheGet extends TestCachesParent {
 

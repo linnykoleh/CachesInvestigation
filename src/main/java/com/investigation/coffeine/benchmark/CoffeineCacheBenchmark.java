@@ -1,4 +1,4 @@
-package com.investigation.benchmark;
+package com.investigation.coffeine.benchmark;
 
 import java.util.concurrent.TimeUnit;
 
@@ -14,8 +14,8 @@ import org.openjdk.jmh.annotations.State;
 import org.openjdk.jmh.annotations.Threads;
 import org.openjdk.jmh.annotations.Warmup;
 
-import com.google.common.cache.Cache;
-import com.google.common.cache.CacheBuilder;
+import com.github.benmanes.caffeine.cache.Cache;
+import com.github.benmanes.caffeine.cache.Caffeine;
 import com.investigation.domain.DomainObject;
 
 @State(Scope.Thread)
@@ -23,47 +23,43 @@ import com.investigation.domain.DomainObject;
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
 @Warmup(iterations = 5)
 @Fork(2)
-public class GuavaCacheBenchmark {
-
-
-	private static final long CACHE_SIZE_FACTOR = 2;
-	private static final long DESIRED_SIZE = 200;
+public class CoffeineCacheBenchmark {
 
 	private Cache<String, DomainObject> cache;
 
-	private DomainObject exampleObject = new DomainObject("key",
+	private DomainObject domainObject = new DomainObject("key",
 			"prop2", "prop3","prop4","prop5","prop6","prop7",
 			8,9,10,11,12,13,14,
 			15,16,17,18,19,20);
 
 	@Setup
 	public void setup() {
-		cache = CacheBuilder
-				.newBuilder()
-				.maximumSize(DESIRED_SIZE * CACHE_SIZE_FACTOR)
+		cache = Caffeine.newBuilder()
+				.expireAfterWrite(1, TimeUnit.MINUTES)
+				.maximumSize(100)
 				.build();
 	}
 
 	@Benchmark
 	@Threads(5)
 	@Measurement(iterations = 5, time = 100, timeUnit = TimeUnit.NANOSECONDS)
-	public void push() {
-		this.cache.put("key", exampleObject);
+	public void add() {
+		cache.put("key1", domainObject);
 	}
 
 	@Benchmark
 	@Threads(5)
 	@Measurement(iterations = 5, time = 100, timeUnit = TimeUnit.NANOSECONDS)
 	public DomainObject get() {
-		return cache.getIfPresent("key");
+		return cache.get("key", s -> domainObject);
 	}
 
 	@Benchmark
 	@Threads(5)
 	@Measurement(iterations = 5, time = 100, timeUnit = TimeUnit.NANOSECONDS)
-	public DomainObject getPut() {
-		this.cache.put("key", exampleObject);
-		return cache.getIfPresent("key");
+	public DomainObject getAdd() {
+		cache.put("key", domainObject);
+		return cache.get("key", s -> domainObject);
 	}
 
 }

@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import com.investigation.domain.DomainObject;
+import com.investigation.guava.GuavaCache;
 
 public class TestGuavaCachePut extends TestCachesParent {
 
